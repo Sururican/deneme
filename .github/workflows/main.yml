@@ -25,7 +25,7 @@ jobs:
 
     - name: Build and tag Docker image
       run: |
-        docker build -t your-docker-image-name -f /Dockerfile.dockerfile .
+        docker build -t your-docker-image-name -f Dockerfile.dockerfile .
         docker tag your-docker-image-name your-docker-image-name:latest
 
     - name: Log in to Docker Hub
