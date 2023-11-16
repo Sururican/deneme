@@ -1,7 +1,7 @@
 # Use an official Python runtime as a parent image
 FROM python:3.12-slim
 # Install python3.x-dev package
-RUN apt-get update && apt-get install -y python3.12-dev
+RUN apt-get update && apt-get install -y python3-distutils
 # Set the working directory to /app
 WORKDIR /app
 
