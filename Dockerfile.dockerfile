@@ -1,7 +1,7 @@
 # Use an official Python runtime as a parent image
-FROM python:3.9-slim
+FROM python:3.10-slim
 
-# Install python3.9-dev package
+# Install python3.10-dev package
 RUN apt-get update && apt-get install -y python3-distutils
 # Set the working directory to /app
 WORKDIR /app
