@@ -16,7 +16,7 @@ from pandas_ta.utils import get_offset, verify_series
 # In[2]:
 
 
-get_ipython().system('pip install import-ipynb')
+#get_ipython().system('pip install import-ipynb')
 
 
 # In[3]:
