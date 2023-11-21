@@ -10,6 +10,19 @@ import yfinance as yf
 import matplotlib.pyplot as plt
 import pandas_ta as ta
 from def_funktionen import * 
+from azure.cosmos import CosmosClient
+
+url = "xF2uR8yl9kvI1801q5rn68bJ6QBYb0Kz4ur99MdT90p26RA0XqhrCGTBgP8ivkJKmt3mk1nggZtRACDbsapTKA=="
+key = "AccountEndpoint=https://apptrading.documents.azure.com:443/;AccountKey=xF2uR8yl9kvI1801q5rn68bJ6QBYb0Kz4ur99MdT90p26RA0XqhrCGTBgP8ivkJKmt3mk1nggZtRACDbsapTKA==;"
+database_name = "arbeitprojekt"
+container_name = "Container1"
+
+client = CosmosClient(url, credential=key)
+database = client.get_database_client(database_name)
+container = database.get_container_client(container_name)
+
+
+
 
 
 # # Datensatz hochladen
@@ -171,21 +184,31 @@ for i in range(len(y_pred)):
     print(y_pred[i], y_test[i])
     
     
+# Your JSON document to be inserted
+json_document = {
+    "id": "2",  # Farklı bir id kullanın
+    "category": "personal",
+    "name": y_pred[-1],  # Değerinizi buraya ekleyin
+    "description": "your_description_here",  # İsteğe bağlı olarak açıklama ekleyin
+    "isComplete": False
+}
 
+# Insert JSON document into Cosmos DB
+container.upsert_item(body=json_document)
 
 # In[15]:
 
 
-plt.figure(figsize=(16,8))
-plt.plot(y_test, color = 'black', label = 'Test')
-plt.plot(y_pred, color = 'green', label = 'pred')
-plt.legend()
-plt.show()
+#plt.figure(figsize=(16,8))
+#plt.plot(y_test, color = 'black', label = 'Test')
+#plt.plot(y_pred, color = 'green', label = 'pred')
+#plt.legend()
+#plt.show()
 
 
 
 
-y_prediction=model.predict(versuch1)
+#y_prediction=model.predict(versuch1)
 
 
 # 
