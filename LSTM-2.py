@@ -186,9 +186,9 @@ y_pred = model.predict(X_test)
     
 # Your JSON document to be inserted
 json_document = {
-    "id": "50",  # Farklı bir id kullanın
+    "id": "51",  # Farklı bir id kullanın
     "category": "personal",
-    "name": y_pred[1],  # Değerinizi buraya ekleyin
+    "name": "ahmet",  # Değerinizi buraya ekleyin
     "description": "your_description_here",  # İsteğe bağlı olarak açıklama ekleyin
     "isComplete": False
 }
