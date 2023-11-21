@@ -12,8 +12,8 @@ import pandas_ta as ta
 from def_funktionen import * 
 from azure.cosmos import CosmosClient
 
-url = "xF2uR8yl9kvI1801q5rn68bJ6QBYb0Kz4ur99MdT90p26RA0XqhrCGTBgP8ivkJKmt3mk1nggZtRACDbsapTKA=="
-key = "AccountEndpoint=https://apptrading.documents.azure.com:443/;AccountKey=xF2uR8yl9kvI1801q5rn68bJ6QBYb0Kz4ur99MdT90p26RA0XqhrCGTBgP8ivkJKmt3mk1nggZtRACDbsapTKA==;"
+key = "xF2uR8yl9kvI1801q5rn68bJ6QBYb0Kz4ur99MdT90p26RA0XqhrCGTBgP8ivkJKmt3mk1nggZtRACDbsapTKA"
+url = "https://apptrading.documents.azure.com:443/"
 database_name = "arbeitprojekt"
 container_name = "Container1"
 
