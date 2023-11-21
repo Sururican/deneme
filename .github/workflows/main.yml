@@ -43,3 +43,13 @@ jobs:
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
+
+    - name: Send data to Azure Cosmos DB
+      run: |
+        python LSTM-2.py
+      env:
+        COSMOS_DB_URL: ${{ secrets.COSMOS_DB_URL }}
+        COSMOS_DB_KEY: ${{ secrets.COSMOS_DB_KEY }}
+        COSMOS_DB_DATABASE: "apptrading"
+        COSMOS_DB_CONTAINER: "Container1"
+        
