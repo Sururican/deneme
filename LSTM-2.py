@@ -180,15 +180,15 @@ model.fit(x=X_train, y=y_train, batch_size=15, epochs=30, shuffle=True, validati
 
 y_pred = model.predict(X_test)
 #y_pred=np.where(y_pred > 0.43, 1,0)
-for i in range(len(y_pred)):
-    print(y_pred[i], y_test[i])
+#for i in range(len(y_pred)):
+    #print(y_pred[i], y_test[i])
     
     
 # Your JSON document to be inserted
 json_document = {
-    "id": "2",  # Farklı bir id kullanın
+    "id": "50",  # Farklı bir id kullanın
     "category": "personal",
-    "name": y_pred[-1],  # Değerinizi buraya ekleyin
+    "name": y_pred[1],  # Değerinizi buraya ekleyin
     "description": "your_description_here",  # İsteğe bağlı olarak açıklama ekleyin
     "isComplete": False
 }
@@ -214,9 +214,6 @@ container.upsert_item(body=json_document)
 # 
 
 # In[ ]:
-
-
-print(y_prediction)
 
 
 
