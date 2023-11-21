@@ -191,10 +191,8 @@ json_document = {
     "name": "Long",
     "description": "your_description_here",
     "isComplete": False,
-    "partitionKey": {
-        "trading": "your_trading_value",
-        "direction": "Longdirection"
-    }
+    "trading": "trading_value",  # Bu değeri trading partition key'e göre değiştirin
+    "direction": "direction_value"  # Bu değeri direction partition key'e göre değiştirin
 }
 # Insert JSON document into Cosmos DB
 container.upsert_item(body=json_document)
