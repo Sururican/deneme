@@ -186,13 +186,13 @@ y_pred = model.predict(X_test)
     
 # Your JSON document to be inserted
 json_document = {
-    "id": "10",  # Farklı bir id kullanın
+    "id": "10",
     "category": "personal",
-    "name": "Long",  # Değerinizi buraya ekleyin
-    "description": "your_description_here",  # İsteğe bağlı olarak açıklama ekleyin
-    "isComplete": False
+    "name": "Long",
+    "description": "your_description_here",
+    "isComplete": False,
+    "partitionKey": "personal"  # İsteğe bağlı olarak partition key ekleyin
 }
-
 # Insert JSON document into Cosmos DB
 container.upsert_item(body=json_document)
 
