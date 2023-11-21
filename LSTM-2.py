@@ -14,7 +14,7 @@ from azure.cosmos import CosmosClient
 
 key = "xF2uR8yl9kvI1801q5rn68bJ6QBYb0Kz4ur99MdT90p26RA0XqhrCGTBgP8ivkJKmt3mk1nggZtRACDbsapTKA=="
 url = "https://apptrading.documents.azure.com:443/"
-database_name = "arbeitprojekt"
+database_name = "database"
 container_name = "Container1"
 
 client = CosmosClient(url, credential=key)
