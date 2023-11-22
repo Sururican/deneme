@@ -58,27 +58,44 @@ def scale_container(container):
 def read_item(container, doc_id, account_number):
     print('\nReading Item by Id\n')
 
-    # We can do an efficient point read lookup on partition key and id
-    response = container.read_item(item=doc_id, partition_key=account_number)
+    try:
+        # We can do an efficient point read lookup on partition key and id
+        response = container.read_item(item=doc_id, partition_key=account_number)
 
-    print('Item read by Id {0}'.format(doc_id))
-    print('Partition Key: {0}'.format(response.get('partitionKey')))
-    print('Subtotal: {0}'.format(response.get('subtotal')))
+        print('Item read by Id {0}'.format(doc_id))
+        print('Partition Key: {0}'.format(response.get('partitionKey')))
+        
+        # Check if 'subtotal' key exists in the document
+        if 'subtotal' in response:
+            print('Subtotal: {0}'.format(response['subtotal']))
+        else:
+            print('Subtotal: Not found')
+
+    except Exception as e:
+        print('Error reading item: {0}'.format(e))
 
 
 def read_items(container):
     print('\nReading all items in a container\n')
 
-    # NOTE: Use MaxItemCount on Options to control how many items come back per trip to the server
-    #       Important to handle throttles whenever you are doing operations such as this that might
-    #       result in a 429 (throttled request)
-    item_list = list(container.read_all_items(max_item_count=10))
+    try:
+        # NOTE: Use MaxItemCount on Options to control how many items come back per trip to the server
+        #       Important to handle throttles whenever you are doing operations such as this that might
+        #       result in a 429 (throttled request)
+        item_list = list(container.read_all_items(max_item_count=10))
 
-    print('Found {0} items'.format(item_list.__len__()))
+        print('Found {0} items'.format(item_list.__len__()))
 
-    for doc in item_list:
-        print('Item Id: {0}'.format(doc.get('id')))
+        for doc in item_list:
+            print('Item Id: {0}'.format(doc.get('id')))
+            # Check if 'subtotal' key exists in the document
+            if 'subtotal' in doc:
+                print('Subtotal: {0}'.format(doc['subtotal']))
+            else:
+                print('Subtotal: Not found')
 
+    except Exception as e:
+        print('Error reading items: {0}'.format(e))
 
 def query_items(container, account_number):
     print('\nQuerying for an  Item by Partition Key\n')
