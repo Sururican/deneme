@@ -182,5 +182,4 @@ def run_sample():
             print("\nrun_sample done")
 
 
-if __name__ == '__main__':
-    run_sample()
+
