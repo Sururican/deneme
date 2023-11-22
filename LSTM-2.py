@@ -10,16 +10,9 @@ import yfinance as yf
 import matplotlib.pyplot as plt
 import pandas_ta as ta
 from def_funktionen import * 
-from azure.cosmos import CosmosClient
+from run import *
 
-key = "xF2uR8yl9kvI1801q5rn68bJ6QBYb0Kz4ur99MdT90p26RA0XqhrCGTBgP8ivkJKmt3mk1nggZtRACDbsapTKA=="
-url = "https://apptrading.documents.azure.com:443/"
-database_name = "database"
-container_name = "Container1"
 
-client = CosmosClient(url, credential=key)
-database = client.get_database_client(database_name)
-container = database.get_container_client(container_name)
 
 
 
@@ -185,17 +178,8 @@ y_pred = model.predict(X_test)
     
     
 # Your JSON document to be inserted
-json_document = {
-    "id": "10",
-    "category": "personal",
-    "name": "Long",
-    "description": "your_description_here",
-    "isComplete": False,
-    "trading": "trading_value",  # Bu değeri trading partition key'e göre değiştirin
-    "direction": "direction_value"  # Bu değeri direction partition key'e göre değiştirin
-}
-# Insert JSON document into Cosmos DB
-container.upsert_item(body=json_document)
+if __name__ == '__main__':
+    run_sample()
 
 # In[15]:
 
