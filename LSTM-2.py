@@ -178,7 +178,6 @@ y_pred = model.predict(X_test)
 if __name__ == '__main__':
     run_sample()
 
-# In[15]:
 
 
 #plt.figure(figsize=(16,8))
