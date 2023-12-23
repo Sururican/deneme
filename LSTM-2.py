@@ -172,7 +172,7 @@ y_pred = model.predict(X_test)
 #y_pred=np.where(y_pred > 0.43, 1,0)
 #for i in range(len(y_pred)):
     #print(y_pred[i], y_test[i])
-    
+model.save("model.LSTMTrading")   
     
 # Your JSON document to be inserted
 if __name__ == '__main__':
